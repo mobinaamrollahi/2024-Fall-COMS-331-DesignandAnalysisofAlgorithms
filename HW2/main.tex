@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+
+
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\date{}
+
+\newcommand{\mys}[2]{\displaystyle\sum_{#1}^{#2}}
+
+\usepackage{tikz}
+
+\newif\ifans
+\anstrue
+
+
+\begin{document}
+
+\begin{center}
+  \textbf{COMS 3110: Homework 2}\\
+  \textbf{Due: October $11^{th}$, 11:59pm}\\
+  \textbf{Total Points: 50}
+\end{center}
+
+
+\paragraph{Late submission policy.\ }
+An assignment that is submitted one day late will get a penalty of $10\%$. An assignment that is submitted two days late will get a penalty of $20\%$. Assignments submitted after two days will not be graded and will get no points. For example, if an assignment is due on Friday by midnight, a submission on Saturday will be penalized by $10\%$, and a submission on Sunday will be penalized by $20\%$. A submission on Monday will get no points. 
+
+\paragraph{Submission format.\ }
+Homework solutions will have to be typed. You can use word, LaTeX, or any other type-setting tool to type your solution. Your submission file should be in pdf format. Do \textbf{NOT} submit a photocopy of handwritten homework except for diagrams that can be hand-drawn and scanned. We reserve the right \textbf{NOT} to grade homework that does not follow the formatting requirements.
+Name your submission
+file: \texttt{<Your-net-id>-3110-hw2.pdf}. For instance, if your netid
+is \texttt{asterix}, then your submission file will be named
+\texttt{asterix-3110-hw2.pdf}.
+Each student must hand in their own assignment. If you discussed the homework or solutions with others, a list of collaborators must be included with each submission. Each of the collaborators has to write the solutions in their own words (copies are not allowed).
+
+\paragraph{General Requirements}
+\begin{itemize}
+    \item When proofs are required, do your best to make them both clear and rigorous. Even when proofs are not required, you should justify your answers and explain your work.
+    \item When asked to present a construction, you should show the correctness of the construction.
+\end{itemize}
+
+\paragraph{Some Useful (in)equalities}
+\begin{itemize}
+    \item $\sum_{i=1}^n i= \frac{n(n+1)}{2}$
+    \item $\sum_{i=1}^ni^2 = \frac{n(n+1)(2n+1)}{6}$
+    \item $2^{\log_2n}=n$, $a^{\log_bn}=n^{\log_ba}$, $n^{n/2}\leq n! \leq n^n$, $\log x^a = a\log x$
+    \item $\log (a\times b) = \log a + \log b$, $\log(a/b) = \log a - \log b$
+    \item $a + ar + ar^2 + ... + ar^{n-1} = \frac{a(r^n-1)}{r-1}$
+    \item $1 + \frac{1}{2} + \frac{1}{2^2} + ... + \frac{1}{2^n} = 2(1-\frac{1}{2^{n+1}})$
+    \item $1 + 2 + 4 + ... + 2^n = 2^{n+1}-1$
+\end{itemize}
+
+
+\hrule
+
+\newpage
+
+\begin{enumerate}
+    \item \textbf{(10 pts)} \underline{Prefix-Sum Problem}: Given an array $A$ of integers, is there a sub-array of $A$ such that if we add all the elements of the sub-array, we get a sum of zero? By sub-array, we mean a contiguous sub-array. \\
+
+    \textbf{Naive Brute Force Algorithm (Pseudocode)}:
+    \begin{verbatim}
+        for i = 1 to n {
+            for j = i to n {
+                sum = A[i] + A[i + 1] + ... + A[j]
+                if sum == 0 return true
+            }
+        }
+        return false
+    \end{verbatim}
+    Derive the runtime of the above algorithm in detail and determine its Big-O upper bound. You must show the derivation of the end result. Simply stating the final answer without any derivation steps will result in zero points.
+
+    \ifans
+    \color{blue}
+    \color{black}
+    \fi
+
+    \hfill\break
+
+    \item \textbf{(10 pts)} Given an array of integers, write an efficient algorithm to check whether there is a sub-array whose sum is a multiple of a given integer $K$. You must use a strategy of computing prefix-sums. Give a detailed analysis of the runtime or expected runtime of your algorithm. 
+    
+    \ifans
+    \color{blue}
+    \color{black}
+    \fi
+
+    \hfill\break
+
+    \item \textbf{(10 pts)} Prove that the height of a heap tree is $\lfloor\log_2(n)\rfloor$ where $n$ is the number of elements in the tree.
+    
+    \ifans
+    \color{blue}
+    \color{black}
+    \fi
+
+    \hfill\break
+
+    \item \textbf{(10 pts)}
+    \begin{enumerate}
+        \item \textbf{(5 pts)} Where in a max heap might the smallest element reside, assuming that all elements are distinct?
+        
+        \ifans
+        \color{blue}
+        \color{black}
+        \fi
+    
+        \hfill\break
+
+        \item \textbf{(5 pts)} Is an array that is sorted in increasing order a min heap? Justify your answer with an explanation.
+
+        \ifans
+        \color{blue}
+        \color{black}
+        \fi
+    
+        \hfill\break
+    \end{enumerate}
+
+    \hfill\break
+
+    \item \textbf{(10 pts)} Consider an array $H$ of size $n \geq 2$, containing distinct positive integers and an integer $K$ such that $1 \leq K \leq n$. Without sorting the array, write an algorithm with input $H$ and $K$ to find the $K^{th}$ largest integer in $H$. Your algorithm must use a heap data structure. Write pseudocode for your algorithm and also present an analysis of its correctness and the runtime in terms of $K$ and $n$. 
+\end{enumerate}
+
+\end{document}
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
